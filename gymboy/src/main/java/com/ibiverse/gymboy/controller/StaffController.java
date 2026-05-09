@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import jakarta.servlet.http.HttpSession;
-import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 @Controller
@@ -17,7 +19,7 @@ public class StaffController {
 
     @Autowired private StaffRepository staffRepo;
     
-    private static final String UPLOAD_DIR = "src/main/resources/static/uploads/staff/";
+    private static final Path UPLOAD_DIR = Paths.get(System.getProperty("user.dir"), "uploads", "staff");
 
     @GetMapping
     public String staff(HttpSession session, Model model) {
@@ -33,12 +35,13 @@ public class StaffController {
         // Handle photo upload
         if (photo != null && !photo.isEmpty()) {
             try {
-                File uploadDir = new File(UPLOAD_DIR);
-                if (!uploadDir.exists()) uploadDir.mkdirs();
-                
-                String fileName = UUID.randomUUID().toString() + "_" + photo.getOriginalFilename();
-                File file = new File(uploadDir + fileName);
-                photo.transferTo(file);
+                Files.createDirectories(UPLOAD_DIR);
+
+                String originalFileName = photo.getOriginalFilename();
+                String safeName = originalFileName == null ? "staff-photo" : originalFileName.replaceAll("[^a-zA-Z0-9._-]", "_");
+                String fileName = UUID.randomUUID() + "_" + safeName;
+                Path filePath = UPLOAD_DIR.resolve(fileName);
+                photo.transferTo(filePath);
                 staff.setPhotoPath("/uploads/staff/" + fileName);
             } catch (Exception e) {
                 e.printStackTrace();
