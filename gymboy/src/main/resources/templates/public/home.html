@@ -28,7 +28,7 @@
     <div class="facilities-grid">
         <div class="facility-card" th:each="f : ${facilities}">
             <div style="font-size: 3rem; margin-bottom: 1rem;">🏋️</div>
-            <h3 style="color: var(--gold); margin-bottom: 0.5rem;" th:text="${f.name}">Facility</h3>
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;" th:text="${f.facilityName}">Facility</h3>
             <p th:text="${f.description}">Description</p>
         </div>
         <div class="facility-card">
@@ -53,11 +53,12 @@
     <h2 class="section-title">Our Classes</h2>
     <div class="facilities-grid">
         <div class="facility-card" th:each="c : ${classes}">
-            <h3 style="color: var(--gold); margin-bottom: 1rem;" th:text="${c.name}">Class</h3>
-            <p th:text="${c.description}">Class description</p>
+            <h3 style="color: var(--gold); margin-bottom: 1rem;" th:text="${c.className}">Class</h3>
+            <p th:text="${c.scheduleDay + ' @ ' + c.scheduleTime}">Class schedule</p>
+            <p th:text="${c.durationMinutes + ' minutes'}">Class duration</p>
         </div>
         <div class="facility-card">
-            <h3 style="color: var(--gold); margin-bottom: 1rem;">Strength & Core</h3>
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">Strength &amp; Core</h3>
             <p>Build total-body power and core stability with guided strength circuits.</p>
         </div>
         <div class="facility-card">
