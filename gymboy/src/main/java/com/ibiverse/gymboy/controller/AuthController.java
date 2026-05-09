@@ -20,6 +20,11 @@ public class AuthController {
         return "redirect:/public/home";
     }
 
+    @GetMapping("/home")
+    public String legacyHome() {
+        return "redirect:/public/home";
+    }
+
     @GetMapping("/admin/login")
     public String loginPage() {
         return "admin/login";
