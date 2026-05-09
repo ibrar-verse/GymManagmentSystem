@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Check-ins - GymBoy</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <a href="/" class="navbar-brand">💪 GymBoy (Admin)</a>
+    <ul class="navbar-menu">
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/checkin">Check-ins</a></li>
+    </ul>
+    <a class="btn-logout" href="/admin/logout">Logout</a>
+</nav>
+
+<div class="page-container">
+    <h1 class="page-title">Check-in Logs</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Member</th>
+                    <th>Check-in Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="log : ${logs}">
+                    <td th:text="${log.member?.firstName} + ' ' + ${log.member?.lastName}">Member</td>
+                    <td th:text="${log.checkInTime}">time</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBoy - Fitness Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">💪 GymBoy</a>
+        <ul class="navbar-menu">
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">Transform Your Fitness Journey</h1>
+        <p class="hero-subtitle">Join GymBoy - The Ultimate Fitness Management Platform</p>
+        <a href="/login" class="btn-primary" style="text-decoration: none;">Get Started</a>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="section">
+        <h2 class="section-title">Our Facilities</h2>
+        <div class="facilities-grid" id="facilitiesGrid">
+            <div class="facility-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🏋️</div>
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Weight Training</h3>
+                <p>State-of-the-art equipment and free weights for all fitness levels.</p>
+            </div>
+            <div class="facility-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🧘</div>
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Yoga Studio</h3>
+                <p>Peaceful environment for yoga, pilates, and meditation sessions.</p>
+            </div>
+            <div class="facility-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🏊</div>
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Swimming Pool</h3>
+                <p>Olympic-sized pool with swimming and aquatic fitness classes.</p>
+            </div>
+            <div class="facility-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🥊</div>
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Boxing Ring</h3>
+                <p>Dedicated boxing space for technique drills, pad work, and conditioning.</p>
+            </div>
+            <div class="facility-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🚴</div>
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Cardio Zone</h3>
+                <p>Treadmills, bikes, rowers, and stair climbers for heart-pumping sessions.</p>
+            </div>
+            <div class="facility-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🧊</div>
+                <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Recovery Lounge</h3>
+                <p>Stretching area, foam rollers, and recovery tools to help muscles bounce back.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="section">
+        <h2 class="section-title">Our Classes</h2>
+        <div class="facilities-grid" id="classesGrid">
+            <div class="facility-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">HIIT Training</h3>
+                <p>High-intensity interval training to burn maximum calories.</p>
+                <p style="color: var(--dark-gold); margin-top: 1rem;">Mon, Wed, Fri - 6:00 PM</p>
+            </div>
+            <div class="facility-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Spinning</h3>
+                <p>Indoor cycling classes with motivating music and trainers.</p>
+                <p style="color: var(--dark-gold); margin-top: 1rem;">Daily - 7:00 AM & 5:00 PM</p>
+            </div>
+            <div class="facility-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Boxing</h3>
+                <p>Learn authentic boxing techniques from certified instructors.</p>
+                <p style="color: var(--dark-gold); margin-top: 1rem;">Tue, Thu, Sat - 5:30 PM</p>
+            </div>
+            <div class="facility-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Strength & Core</h3>
+                <p>Focused training for total-body power, posture, and core stability.</p>
+                <p style="color: var(--dark-gold); margin-top: 1rem;">Mon & Thu - 8:00 AM</p>
+            </div>
+            <div class="facility-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Yoga Flow</h3>
+                <p>Flexible mobility sessions to improve balance, recovery, and calm.</p>
+                <p style="color: var(--dark-gold); margin-top: 1rem;">Tue & Sat - 7:30 AM</p>
+            </div>
+            <div class="facility-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Bootcamp</h3>
+                <p>Fast-paced group training for endurance, fat loss, and full-body fitness.</p>
+                <p style="color: var(--dark-gold); margin-top: 1rem;">Wed & Fri - 6:30 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+        <h2 class="section-title">Membership Plans</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Basic</h3>
+                <p>Perfect for beginners</p>
+                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
+                <ul style="text-align: left; margin: 1rem 0; line-height: 1.8;">
+                    <li>✓ Gym access</li>
+                    <li>✓ Basic facilities</li>
+                    <li>✓ App access</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%;">Subscribe</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Standard</h3>
+                <p style="color: var(--gold);">Most Popular</p>
+                <div class="price">$59<span style="font-size: 1rem;">/month</span></div>
+                <ul style="text-align: left; margin: 1rem 0; line-height: 1.8;">
+                    <li>✓ All Basic features</li>
+                    <li>✓ Group classes</li>
+                    <li>✓ Personal trainer</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%;">Subscribe</button>
+            </div>
+            <div class="pricing-card">
+                <h3 style="color: var(--gold); margin-bottom: 1rem;">Premium</h3>
+                <p>For serious athletes</p>
+                <div class="price">$99<span style="font-size: 1rem;">/month</span></div>
+                <ul style="text-align: left; margin: 1rem 0; line-height: 1.8;">
+                    <li>✓ All features</li>
+                    <li>✓ Priority booking</li>
+                    <li>✓ Nutrition plan</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%;">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--dark-gray); padding: 2rem; text-align: center; border-top: 2px solid var(--gold);">
+        <p>&copy; 2026 GymBoy. All rights reserved. | Transforming Fitness Management</p>
+    </footer>
+
+    <script src="/js/public.js"></script>
+</body>
+</html>

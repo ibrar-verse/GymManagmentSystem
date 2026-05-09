@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBoy - Check-in</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">💪 GymBoy</a>
+        <ul class="navbar-menu">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/check-in">Check-in</a></li>
+            <li><a href="/staff">Staff</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+        </ul>
+        <button class="btn-logout" id="logoutBtn">Logout</button>
+    </nav>
+
+    <div class="page-container">
+        <h1 class="page-title">Member Check-in</h1>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+            <!-- Quick Check-in -->
+            <div class="table-container" style="padding: 2rem; background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px;">
+                <h2 style="color: var(--gold); margin-bottom: 1rem;">Quick Check-in</h2>
+                <form id="checkInForm">
+                    <div class="form-group">
+                        <label for="memberId">Member ID or Email</label>
+                        <input type="text" id="memberId" class="form-control" placeholder="Enter member ID or email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="facility">Facility</label>
+                        <select id="facility" class="form-control" required>
+                            <option value="">Select Facility</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Check-in</button>
+                </form>
+                <div id="checkInMessage" style="margin-top: 1rem; padding: 1rem; border-radius: 5px; display: none;"></div>
+            </div>
+
+            <!-- Today's Summary -->
+            <div class="table-container" style="padding: 2rem; background: var(--card-bg); border: 2px solid var(--gold); border-radius: 10px;">
+                <h2 style="color: var(--gold); margin-bottom: 1rem;">Today's Summary</h2>
+                <div style="margin-bottom: 1rem;">
+                    <div style="margin-bottom: 0.5rem;"><strong>Total Check-ins:</strong> <span id="totalCheckIns" style="color: var(--gold);">0</span></div>
+                    <div style="margin-bottom: 0.5rem;"><strong>Active Members:</strong> <span id="activeMembers" style="color: var(--gold);">0</span></div>
+                    <div style="margin-bottom: 0.5rem;"><strong>Peak Time:</strong> <span id="peakTime" style="color: var(--gold);">N/A</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Check-in History -->
+        <div style="margin-top: 2rem;">
+            <h2 style="color: var(--gold); margin-bottom: 1rem;">Today's Check-ins</h2>
+            <div class="table-container">
+                <table id="checkInHistoryTable">
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th>Check-in Time</th>
+                            <th>Facility</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="checkInHistoryBody">
+                        <tr><td colspan="5" style="text-align: center; color: var(--dark-gold);">Loading check-ins...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/check-in.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

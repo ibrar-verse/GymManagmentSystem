@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBoy - Staff</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">💪 GymBoy</a>
+        <ul class="navbar-menu">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/check-in">Check-in</a></li>
+            <li><a href="/staff">Staff</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+        </ul>
+        <button class="btn-logout" id="logoutBtn">Logout</button>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <h1 class="page-title">Staff Management</h1>
+            <button class="btn-primary" id="addStaffBtn">+ Add Staff</button>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search staff by name...">
+            <button class="btn-primary" id="searchBtn">Search</button>
+        </div>
+
+        <div class="table-container">
+            <table id="staffTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Position</th>
+                        <th>Hire Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="staffTableBody">
+                    <tr><td colspan="7" style="text-align: center; color: var(--dark-gold);">Loading staff...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add/Edit Staff Modal -->
+    <div id="staffModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add New Staff</h2>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="staffForm">
+                <div class="form-group">
+                    <label for="staffName">Full Name</label>
+                    <input type="text" id="staffName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffEmail">Email</label>
+                    <input type="email" id="staffEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffPhone">Phone</label>
+                    <input type="tel" id="staffPhone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffPosition">Position</label>
+                    <select id="staffPosition" class="form-control" required>
+                        <option value="">Select Position</option>
+                        <option value="TRAINER">Trainer</option>
+                        <option value="MANAGER">Manager</option>
+                        <option value="ADMIN">Admin</option>
+                        <option value="RECEPTIONIST">Receptionist</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Save Staff</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/staff.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

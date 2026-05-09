@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Tiers - GymBoy</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <a href="/" class="navbar-brand">💪 GymBoy (Admin)</a>
+    <ul class="navbar-menu">
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/tiers">Tiers</a></li>
+    </ul>
+    <a class="btn-logout" href="/admin/logout">Logout</a>
+</nav>
+
+<div class="page-container">
+    <h1 class="page-title">Membership Tiers</h1>
+    
+    <div class="form-container">
+        <h2>Add New Tier</h2>
+        <form method="post" action="/admin/tiers/add">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tierName">Tier Name *</label>
+                    <input type="text" id="tierName" name="tierName" required>
+                </div>
+                <div class="form-group">
+                    <label for="monthlyPrice">Monthly Price *</label>
+                    <input type="number" id="monthlyPrice" name="monthlyPrice" step="0.01" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="accessLevel">Access Level *</label>
+                    <input type="number" id="accessLevel" name="accessLevel" required>
+                </div>
+                <div class="form-group">
+                    <label for="features">Features</label>
+                    <input type="text" id="features" name="features">
+                </div>
+            </div>
+            <button type="submit" class="btn-primary">+ Add Tier</button>
+        </form>
+    </div>
+    
+    <div class="table-container">
+        <h2>Tiers List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Access Level</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="t : ${tiers}">
+                    <td th:text="${t.tierName}">Name</td>
+                    <td th:text="${t.monthlyPrice}">Price</td>
+                    <td th:text="${t.accessLevel}">Access Level</td>
+                    <td th:text="${t.features}">Description</td>
+                    <td>
+                        <a th:href="@{/admin/tiers/delete/{id}(id=${t.tierId})}" class="btn-danger btn-small">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

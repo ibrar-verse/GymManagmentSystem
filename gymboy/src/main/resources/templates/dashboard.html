@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBoy - Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">💪 GymBoy</a>
+        <ul class="navbar-menu">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/check-in">Check-in</a></li>
+            <li><a href="/staff">Staff</a></li>
+            <li><a href="/facilities">Facilities</a></li>
+        </ul>
+        <button class="btn-logout" id="logoutBtn">Logout</button>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Gym Dashboard</h1>
+            <p style="color: var(--dark-gold);">Welcome, <span id="userName">User</span>!</p>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number" id="totalMembers">0</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number" id="todayCheckIns">0</div>
+                <div class="stat-label">Today's Check-ins</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👨‍💼</div>
+                <div class="stat-number" id="totalStaff">0</div>
+                <div class="stat-label">Staff Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏋️</div>
+                <div class="stat-number" id="totalClasses">0</div>
+                <div class="stat-label">Gym Classes</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <h2 style="color: var(--gold); margin-bottom: 1rem;">Recent Check-ins</h2>
+            <div class="table-container">
+                <table id="recentCheckInsTable">
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th>Check-in Time</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="checkInsTableBody">
+                        <tr><td colspan="4" style="text-align: center; color: var(--dark-gold);">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

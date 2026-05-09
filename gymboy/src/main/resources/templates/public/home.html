@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBoy - Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <a href="/" class="navbar-brand">💪 GymBoy</a>
+    <ul class="navbar-menu">
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="/admin/login">Admin Login</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1 class="hero-title">Transform Your Fitness Journey</h1>
+    <p class="hero-subtitle">Join GymBoy - The Ultimate Fitness Management Platform</p>
+    <a href="/admin/login" class="btn-primary" style="text-decoration: none;">Admin</a>
+</section>
+
+<section id="facilities" class="section">
+    <h2 class="section-title">Our Facilities</h2>
+    <div class="facilities-grid">
+        <div class="facility-card" th:each="f : ${facilities}">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🏋️</div>
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;" th:text="${f.name}">Facility</h3>
+            <p th:text="${f.description}">Description</p>
+        </div>
+        <div class="facility-card">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🥊</div>
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Boxing Ring</h3>
+            <p>Dedicated ring space for striking drills, sparring, and conditioning.</p>
+        </div>
+        <div class="facility-card">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🚴</div>
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Cardio Studio</h3>
+            <p>Treadmills, bikes, and rowers for high-energy cardio sessions.</p>
+        </div>
+        <div class="facility-card">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🧊</div>
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Recovery Zone</h3>
+            <p>Stretching, foam rolling, and recovery tools to support training days.</p>
+        </div>
+    </div>
+</section>
+
+<section id="classes" class="section">
+    <h2 class="section-title">Our Classes</h2>
+    <div class="facilities-grid">
+        <div class="facility-card" th:each="c : ${classes}">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;" th:text="${c.name}">Class</h3>
+            <p th:text="${c.description}">Class description</p>
+        </div>
+        <div class="facility-card">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">Strength & Core</h3>
+            <p>Build total-body power and core stability with guided strength circuits.</p>
+        </div>
+        <div class="facility-card">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">Yoga Flow</h3>
+            <p>Improve mobility, balance, and recovery with calming flow sessions.</p>
+        </div>
+        <div class="facility-card">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">Bootcamp</h3>
+            <p>A fast-paced full-body class designed for endurance and fat loss.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="section">
+    <h2 class="section-title">Membership Plans</h2>
+    <div class="pricing-grid">
+        <div class="pricing-card" th:each="t : ${tiers}">
+            <h3 style="color: var(--gold);" th:text="${t.tierName}">Tier</h3>
+            <div class="price" th:text="${t.monthlyPrice}">$0</div>
+            <p th:text="${t.features}">Details</p>
+        </div>
+    </div>
+</section>
+
+<footer style="background: var(--dark-gray); padding: 2rem; text-align: center; border-top: 2px solid var(--gold);">
+    <p>&copy; 2026 GymBoy. All rights reserved.</p>
+</footer>
+
+<script src="/js/public.js"></script>
+</body>
+</html>
