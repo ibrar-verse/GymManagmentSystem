@@ -6,6 +6,8 @@ import com.ibiverse.gymboy.model.Member;
 import com.ibiverse.gymboy.repository.CheckInLogRepository;
 import com.ibiverse.gymboy.repository.FacilityRepository;
 import com.ibiverse.gymboy.repository.MemberRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +17,14 @@ import java.time.LocalDateTime;
 
 @Configuration
 public class DataInitializer {
+    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
 
     @Bean
     CommandLineRunner seedCheckInData(FacilityRepository facilityRepository,
                                       MemberRepository memberRepository,
                                       CheckInLogRepository checkInLogRepository) {
         return args -> {
+            try {
             if (facilityRepository.count() == 0) {
                 Facility gymFloor = new Facility();
                 gymFloor.setFacilityName("Gym Floor");
@@ -70,6 +74,11 @@ public class DataInitializer {
                 log.setDurationMinutes(20);
                 log.setActive(true);
                 checkInLogRepository.save(log);
+            }
+                logger.info("Database seeding completed successfully");
+            } catch (Exception e) {
+                logger.error("Failed to seed database - this may be normal on first startup if DB is not ready", e);
+                // Don't crash the app if seeding fails - DB might not be ready yet
             }
         };
     }
